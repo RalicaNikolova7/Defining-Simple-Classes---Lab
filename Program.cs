@@ -1,6 +1,22 @@
 ﻿using System.Drawing;
 
-namespace RectangleClass;
+namespace DayOfWeek;
+
+public class Rectangle
+{
+    private int width;
+    private int height;
+    private string color;
+
+    public int Width { get; set; }
+    public int Height { get; set; }
+    public string Color { get; set; }
+
+    static int CalculateArea(int width, int height)
+    {
+        return width * height;
+    }
+}
 
 class Program
 {
@@ -8,22 +24,7 @@ class Program
     {
         Rectangle rectangle = new Rectangle();
 
-        rectangle.Width = int.Parse(Console.ReadLine());
-        rectangle.Height = int.Parse(Console.ReadLine());
-        rectangle.Color = Console.ReadLine();
-
-        Console.WriteLine($"Rect({rectangle.Width}, {rectangle.Height}, {rectangle.Color}) has area {rectangle.CalculateArea()}.");
+        Console.WriteLine($"Rect({rectangle.Width}, {rectangle.Height}, {rectangle.Color}) has area {(rectangle.Width)}.");
     }
 }
 
-public class Rectangle
-{
-    public int Width { get; set; }
-    public int Height { get; set; }
-    public string Color { get; set; }
-
-    public int CalculateArea()
-    {
-        return Width * Height;
-    }
-}
