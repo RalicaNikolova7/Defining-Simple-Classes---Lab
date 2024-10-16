@@ -1,30 +1,28 @@
-﻿using System.Drawing;
-
-namespace DayOfWeek;
-
-public class Rectangle
-{
-    private int width;
-    private int height;
-    private string color;
-
-    public int Width { get; set; }
-    public int Height { get; set; }
-    public string Color { get; set; }
-
-    static int CalculateArea(int width, int height)
-    {
-        return width * height;
-    }
-}
+﻿namespace RandomizeWords;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Rectangle rectangle = new Rectangle();
+        string[] words = Console.ReadLine().Split(' ');
 
-        Console.WriteLine($"Rect({rectangle.Width}, {rectangle.Height}, {rectangle.Color}) has area {(rectangle.Width)}.");
+        Random rnd = new Random();
+
+        for (int pos1 = 0; pos1 < words.Length; pos1++)
+        {
+
+            int pos2 = rnd.Next(words.Length);
+
+            var a = words[pos2];
+            var b = words[pos1];
+
+            words[pos2] = b;
+            words[pos1] = a;
+
+            // TODO: Swap words[pos1] with words[pos2]
+        }
+
+        Console.WriteLine(string.Join(Environment.NewLine, words));
     }
 }
 
